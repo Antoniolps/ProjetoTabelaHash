@@ -4,6 +4,12 @@ public class Aluno {
     private int idade;
     private Aluno proximo;
 
+    public Aluno(int matricula, String nome, int idade) {
+        this.matricula = matricula;
+        this.nome = nome;
+        this.idade = idade;
+    }
+
     public void setMartricula(int martricula) {
         this.matricula = martricula;
     }

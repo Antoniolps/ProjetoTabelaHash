@@ -1,36 +1,50 @@
 public class TabelaHash {
     final int M = 11;
-    ListaSequencial listaSequencial = new ListaSequencial();
-    ListaEncadeada listaEncadeada = new ListaEncadeada();
+    ListaEncadeada[] vetor = new ListaEncadeada[M];
+
+    public void iniciar() {
+        for (int i = 0; i < M; i++) {
+            vetor[i] = new ListaEncadeada();
+        }
+    }
 
     public int Hash(int matricula){
         return matricula % M;
     }
 
     public boolean colisao(int matricula){
-        int posicao = Hash(matricula);
-        listaEncadeada = listaSequencial.buscar(posicao);
-
-        if(listaEncadeada.pesquisaALuno(matricula))
-            return true;
-
-        return false;
+        int pos = Hash(matricula);
+        return vetor[pos].pesquisaALuno(matricula);
     }
 
-    public boolean inserir(Aluno aluno){
-
-        if(colisao(aluno.getMartricula())) {
-            ListaEncadeada listaE =listaSequencial.buscar(Hash(aluno.getMartricula()));
-            listaE.inserirNoFim(aluno);
-            this.listaSequencial.inserir(Hash(aluno.getMartricula()), listaE);
-        }
-        else{
-            ListaEncadeada listaE = new ListaEncadeada();
-            listaE.inserirNoFim(aluno);
-            this.listaSequencial.inserir(Hash(aluno.getMartricula()), listaE);
-        }
-        return true;
+    public void inserir(Aluno aluno){
+        int chave = Hash(aluno.getMartricula());
+        if(!colisao(aluno.getMartricula()))
+            vetor[chave].inserirNoFim(aluno);
+        else
+            System.out.println("O aluno já existe");
     }
+
+    public void exibir() {
+
+        for (int i = 0; i < M; i++) {
+            System.out.print("i: " + (i + 1));
+            vetor[i].exibirLista();
+            System.out.print("\n");
+        }
+    }
+
+    public void buscar() {
+
+    }
+
+    public void remover() {
+
+    }
+
+
+
+
 
 
 }

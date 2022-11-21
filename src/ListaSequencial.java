@@ -38,13 +38,8 @@ public class ListaSequencial {
             this.lista[i] = this.lista[i - 1];
     }
 
-    public boolean inserir (int pos, ListaEncadeada lista) {
-        if (estaCheia() || (pos > tamanho) || (pos < 0))
-            return false;
-        deslocarParaDireita(pos);
-        this.lista[pos] = lista;
-        tamanho++;
-        return true;
+    public void inserir (int pos, Aluno aluno) {
+        this.lista[pos].inserirNoFim(aluno);
     }
 
     public void deslocarParaEsquerda(int pos) {
@@ -70,7 +65,10 @@ public class ListaSequencial {
     }
 
     public void exibirLista() {
-        for (int i = 0; i < tamanho; i++)
-            this.lista[i].exibirLista();
+        for (int i = 0; i < tamanho; i++) {
+            for (int j = 0; j < lista[i].tamanho; j++) {
+                this.lista[i].exibirLista();
+            }
+        }
     }
 }

@@ -37,7 +37,7 @@ public class ListaEncadeada {
         Aluno temp = primeiro;
         if (!estaVazia()) {
             for (int i = 0; i < tamanho; i++) {
-                System.out.println("Aluno "+i+"| matricula: "+temp.getMartricula()+" | nome: "+temp.getNome()+" | idade: "+temp.getIdade());
+                System.out.print(" - Aluno "+ (i+1) +"| matricula: "+temp.getMartricula()+" | nome: "+temp.getNome()+" | idade: "+temp.getIdade());
                 temp = temp.getProximo();
             }
         }
