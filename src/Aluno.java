@@ -10,11 +10,11 @@ public class Aluno {
         this.idade = idade;
     }
 
-    public void setMartricula(int martricula) {
+    public void setMatricula(int martricula) {
         this.matricula = martricula;
     }
 
-    public int getMartricula() {
+    public int getMatricula() {
         return matricula;
     }
 

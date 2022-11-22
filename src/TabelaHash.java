@@ -14,12 +14,16 @@ public class TabelaHash {
 
     public boolean colisao(int matricula){
         int pos = Hash(matricula);
-        return vetor[pos].pesquisaALuno(matricula);
+
+        if(vetor[pos].pesquisaALuno(matricula) == null)
+            return  false;
+        else
+            return true;
     }
 
     public void inserir(Aluno aluno){
-        int chave = Hash(aluno.getMartricula());
-        if(!colisao(aluno.getMartricula()))
+        int chave = Hash(aluno.getMatricula());
+        if(!colisao(aluno.getMatricula()))
             vetor[chave].inserirNoFim(aluno);
         else
             System.out.println("O aluno já existe");
@@ -34,17 +38,26 @@ public class TabelaHash {
         }
     }
 
-    public void buscar() {
+    public void buscar(int matricula) {
+        int chave = Hash(matricula);
+        Aluno a = vetor[chave].pesquisaALuno(matricula);
 
+        if(a != null){
+            System.out.println(a.toString());
+        }
+        else {
+            System.out.println("O aluno não existe!");
+        }
     }
 
-    public void remover() {
-
+    public void remover(int matricula) {
+        int chave = Hash(matricula);
+        boolean removido = vetor[chave].removerAlunoPorMatricula(matricula);
+        if(removido){
+            System.out.println("O aluno foi removido com sucesso!");
+        }
+        else {
+            System.out.println("O aluno de matricula " + matricula + " não existe!");
+        }
     }
-
-
-
-
-
-
 }
