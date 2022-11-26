@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Aluno a1 = new Aluno(112, "Antonio", 22);
+        /*Aluno a1 = new Aluno(112, "Antonio", 22);
         Aluno a2 = new Aluno(111, "Hiago", 21);
         Aluno a3 = new Aluno(113, "Marco", 19);
         Aluno a4 = new Aluno(116, "Vinicius", 20);
@@ -21,7 +21,10 @@ public class Main {
         t1.buscar(111);
         t1.buscar(220);
         t1.remover(223);
-        t1.exibir();
+        t1.exibir();*/
+
+        Menus menus = new Menus();
+        menus.menuPrincipal();
 
     }
 }

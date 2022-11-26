@@ -23,14 +23,15 @@ public class TabelaHash {
 
     public void inserir(Aluno aluno){
         int chave = Hash(aluno.getMatricula());
-        if(!colisao(aluno.getMatricula()))
+        if(!colisao(aluno.getMatricula())) {
             vetor[chave].inserirNoFim(aluno);
+            System.out.println("Aluno inserido com sucesso!");
+        }
         else
             System.out.println("O aluno já existe");
     }
 
     public void exibir() {
-
         for (int i = 0; i < M; i++) {
             System.out.print("i: " + (i + 1));
             vetor[i].exibirLista();

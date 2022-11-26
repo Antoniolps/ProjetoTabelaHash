@@ -61,7 +61,6 @@ public class ListaEncadeada {
 
     public boolean removerAlunoPorMatricula(int matricula) {
         if (tamanho == 0) {
-            System.out.println("Lista está vazia");
             return false;
         }
 
@@ -82,7 +81,6 @@ public class ListaEncadeada {
         for (int i = 0; i < tamanho; i++) {
             if (matricula == alunodafrente.getMatricula()) {
                 if (i == 0) {
-                    System.out.println("O primeiro da lista é o procurado e será removido.");
                     primeiro = primeiro.getProximo();
                     tamanho--;
                     return true;
